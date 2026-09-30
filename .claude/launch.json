@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "velar-one-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["cross-env", "PORT=3004", "NEXT_PUBLIC_SERVER_URL=http://localhost:3004", "next", "dev"],
+      "port": 3004,
+      "autoPort": false
+    }
+  ]
+}
