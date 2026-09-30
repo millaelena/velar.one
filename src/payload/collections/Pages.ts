@@ -1,13 +1,16 @@
 import type { CollectionConfig } from 'payload'
 import { slugField } from 'payload'
 import { authenticated, authenticatedOrPublished } from '../access'
+import { pageBlocks } from '../blocks'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', '_status', 'updatedAt'],
-    description: 'The page with slug "home" is shown on the front page.',
+    description:
+      'Slug "home" is the front page, other slugs are served at /<slug> (English) and /fi/<slug> (Finnish). Switch language at the top of the editor.',
+    group: 'Content',
   },
   access: {
     read: authenticatedOrPublished,
@@ -19,10 +22,14 @@ export const Pages: CollectionConfig = {
     drafts: true,
   },
   fields: [
-    { name: 'title', type: 'text', required: true },
+    { name: 'title', type: 'text', required: true, localized: true },
     slugField(),
-    { name: 'description', type: 'textarea' },
-    { name: 'heroImage', type: 'upload', relationTo: 'media' },
-    { name: 'content', type: 'richText' },
+    {
+      name: 'description',
+      type: 'textarea',
+      localized: true,
+      admin: { description: 'Shown in search results (about 150 characters).' },
+    },
+    { name: 'layout', type: 'blocks', blocks: pageBlocks },
   ],
 }

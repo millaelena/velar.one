@@ -1,19 +1,73 @@
 @import "tailwindcss";
 
+/* velar.one design tokens — light & clean, dark blue accent, black secondary.
+   Decisions: docs/design/choices.json */
 @theme {
   --color-background: #ffffff;
-  --color-foreground: #0f172a;
-  --color-muted: #64748b;
-  --color-border: #e2e8f0;
-  --color-brand: #1e3a8a;
-  --color-brand-soft: #3b5bdb;
-  --color-accent: #facc15;
-  --color-accent-soft: #fde047;
+  --color-surface: #f8fafc;
+  --color-foreground: #0a0a0a;
+  --color-muted: #5b6474;
+  --color-border: #e5e7eb;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Dark Velar blue: buttons, links, highlights */
+  --color-brand: #1e40af;
+  --color-brand-hover: #1e3a8a;
+  --color-brand-soft: #eff4ff;
+
+  /* Black: secondary buttons and strong text */
+  --color-ink: #0a0a0a;
+  --color-ink-hover: #262626;
+
+  /* Shared with Velar Cloud */
+  --color-navy: #0b1f45;
+
+  --color-success: #047857;
+  --color-success-soft: #ecfdf5;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --animate-pop-in: pop-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

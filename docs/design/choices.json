@@ -1,0 +1,60 @@
+{
+  "answers": {
+    "brand": {
+      "picks": [
+        "sister"
+      ],
+      "note": ""
+    },
+    "look": {
+      "picks": [
+        "light"
+      ],
+      "note": ""
+    },
+    "accent": {
+      "picks": [
+        "blue"
+      ],
+      "note": "blue but make it dark, and second one black"
+    },
+    "font": {
+      "picks": [
+        "inter"
+      ],
+      "note": ""
+    },
+    "hero": {
+      "picks": [
+        "calendar"
+      ],
+      "note": ""
+    },
+    "audience": {
+      "picks": [
+        "entrepreneurs"
+      ],
+      "note": ""
+    },
+    "language": {
+      "picks": [
+        "en-fi"
+      ],
+      "note": ""
+    },
+    "buying": {
+      "picks": [
+        "checkout"
+      ],
+      "note": ""
+    },
+    "pricing": {
+      "picks": [
+        "public"
+      ],
+      "note": ""
+    }
+  },
+  "extra": "",
+  "savedAt": "2026-09-30T11:17:53.368Z"
+}

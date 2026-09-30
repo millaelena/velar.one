@@ -15,6 +15,12 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # secret. Builder stage only — the runner never sees it.
 ENV PAYLOAD_SECRET=build-only-placeholder
 
+# Next inlines NEXT_PUBLIC_* at build time — also into server code. Without it the
+# build freezes the fallback http://localhost:3000 (metadata, Stripe redirects).
+# Set in Dokploy → Build Time Arguments: NEXT_PUBLIC_SERVER_URL=https://<domain>
+ARG NEXT_PUBLIC_SERVER_URL
+ENV NEXT_PUBLIC_SERVER_URL=$NEXT_PUBLIC_SERVER_URL
+
 # Server action encryption key + deployment ID (Next self-hosting guide).
 #
 # Next derives every server action ID from the build's encryption key and

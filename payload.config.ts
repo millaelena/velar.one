@@ -8,6 +8,9 @@ import { fileURLToPath } from 'node:url'
 import { Users } from './src/payload/collections/Users'
 import { Media } from './src/payload/collections/Media'
 import { Pages } from './src/payload/collections/Pages'
+import { Posts } from './src/payload/collections/Posts'
+import { Plans } from './src/payload/collections/Plans'
+import { Customers } from './src/payload/collections/Customers'
 import { migrations } from './src/payload/migrations'
 
 const filename = fileURLToPath(import.meta.url)
@@ -25,7 +28,18 @@ export default buildConfig({
     },
   },
 
-  collections: [Pages, Media, Users],
+  collections: [Pages, Posts, Media, Plans, Customers, Users],
+
+  // Page content is written per language. English is the default; Finnish falls
+  // back to English for any field that hasn't been translated yet.
+  localization: {
+    locales: [
+      { code: 'en', label: 'English' },
+      { code: 'fi', label: 'Suomi' },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
+  },
 
   editor: lexicalEditor(),
 
